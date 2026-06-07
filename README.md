@@ -1,4 +1,4 @@
-# Todo List — TDD Exercise (60 minutes)
+# Todo List — TDD Exercise
 
 You'll build a small Todo list module in Haskell, test-driven, using three
 layers of tests: **acceptance tests**, **unit tests**, and **QuickCheck
@@ -45,15 +45,6 @@ make watch      # re-run on every save (needs the `full` dev shell)
 make repl       # GHCi with the test module loaded
 ```
 
-This uses `runghc` against the GHC the flake bundles with `tasty`,
-`tasty-hunit`, `tasty-quickcheck`, and `QuickCheck` pre-installed from
-the Nix binary cache — so the only thing that ever compiles is your code.
-First test run takes seconds, not minutes.
-
-If you really want cabal or stack, they're still available
-(`cabal test --test-show-details=direct` / `stack test`), but they'll
-rebuild the test deps from source and be slow.
-
 Tests live in `test/Spec.hs`. They start out failing because every function
 in `src/Todo.hs` is `undefined`. Your job is to make them green.
 
@@ -69,13 +60,15 @@ in `src/Todo.hs` is `undefined`. Your job is to make them green.
    - one extra QuickCheck property
 4. **Make sure everything still passes.**
 
+---
+
 ## What each layer is for
 
-- **Acceptance tests** describe a *user-visible workflow*. They use several
+- **Acceptance tests** describe a _user-visible workflow_. They use several
   functions together and check observable outcomes — never internal helpers.
 - **Unit tests** pin down one function at a time, including edge cases
   (empty list, unknown id, …).
-- **Properties** state things that must hold for *every* input.
+- **Properties** state things that must hold for _every_ input.
   Example: completing a task never changes how many tasks there are.
 
 ## Reference solution
