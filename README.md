@@ -78,3 +78,10 @@ finished — or you've spent 20 minutes stuck on the same function.
 
 To check your work against it, just overwrite `src/Todo.hs` with
 `solution/Todo.hs` and re-run the tests.
+
+## Using Hoogle
+
+If you want to find a library function, you can use Hoogle in the terminal.
+`hoogle generate` will generate the library database locally.
+`hoogle "(a -> b) -> [a] -> [b]"` will find library functions with this type signature.
+Otherwise you can checkout <https://hoogle.haskell.org>

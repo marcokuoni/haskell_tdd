@@ -32,17 +32,15 @@
                     # GHC pre-bundled with the test deps. These come from
                     # cache.nixos.org as pre-compiled binaries, so the student
                     # never waits for tasty et al. to build.
-                    (ghcWithPackages (ps: with ps; [
-                      tasty
-                      tasty-hunit
-                      tasty-quickcheck
-                      QuickCheck
-                    ]))
+                    (ghcWithPackages (
+                      ps: with ps; [
+                        tasty
+                        tasty-hunit
+                        tasty-quickcheck
+                        QuickCheck
+                      ]
+                    ))
                     haskell-language-server
-                    # cabal-install is kept as an escape hatch, but the
-                    # primary workflow is `make test` (see Makefile),
-                    # which uses runghc and is effectively instant.
-                    cabal-install
                   ]
                   ++ (pkgs.lib.optionals allFeatures [
                     hlint
